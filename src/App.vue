@@ -25,17 +25,25 @@ export default {
     }
   },
   methods: {
-    getRollText () {
-      this.rollText = this.getRandomText(teamMember) + this.getRandomText(taskText)
+    async getRollText () {
+      let person = await this.getRandomText(teamMember)
+      this.rollText = person.text + this.getRandomText(taskText, person.restrictedTask).text
     },
-    getRandomText (array) {
-      let randomIndex = Math.floor(Math.random() * array.length)
-      let arrayText = array[randomIndex]
+    getRandomText (array, isRestricted) {
+      let filteredArray = array
+      if (isRestricted) {
+        filteredArray = array.filter(task => !task.restricted)
+      }
+      let randomIndex = Math.floor(Math.random() * filteredArray.length)
+      let arrayText = filteredArray[randomIndex]
+      if (arrayText.restrictedTask) {
+        return arrayText
+      }
       if (!arrayText.ending) {
-        return arrayText.text
+        return arrayText
       }
       let endingIndex = Math.floor(Math.random() * arrayText.ending.length)
-      return arrayText.text + arrayText.ending[endingIndex]
+      return {text: arrayText.text + arrayText.ending[endingIndex]}
     }
   }
 }

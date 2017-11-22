@@ -2,8 +2,8 @@
   <div id='TheInstructions'>
     <ol>
       <li>Click the button.</li>
-      <li>Do the thing.</li>
-      <li>Let the next group member know it's their turn.</li>
+      <li>Do the thing. Create a new file if you need to to complete your task.</li>
+      <li>Let your partner know it's their turn.</li>
     </ol>
   </div>
 </template>
