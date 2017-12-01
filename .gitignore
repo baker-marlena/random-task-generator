@@ -5,6 +5,7 @@ yarn-debug.log*
 yarn-error.log*
 .firebaserc
 firebase.json
+dist/
 
 # Editor directories and files
 .idea
