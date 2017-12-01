@@ -21,7 +21,7 @@ let taskText = [
   },
   {text: "create an array of numbers in a Javascript file, if there isn't one.",
     restricted: false,
-    endings: [
+    ending: [
       ' Write a function that generates a sum.',
       ' Write a function that returns an array of the even numbers.',
       ' Write a funciton that multiplies them togehter.'
